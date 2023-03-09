@@ -1,0 +1,16 @@
+function on_game_start()
+    RegisterScriptCallback("ActorMenu_on_mode_changed", actor_menu_mode_changed)
+    exec_console_cmd("bind jump mouse1")
+end
+
+local is_jump_enabled = true
+
+function actor_menu_mode_changed(mode, lastmode) 
+--    printf("actor_menu_mode | current mode: %s - last mode: %s", mode, last_mode)
+    if (mode == 0) then
+        exec_console_cmd("bind jump mouse1")
+    end
+    if (mode == 1) then
+        exec_console_cmd("unbind jump")
+    end
+end
